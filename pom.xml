@@ -58,7 +58,7 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.1</version>
 				<configuration>
-					<release>11</release> <!-- Modern alternative to <source>/<target> -->
+					<release>8</release>
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
