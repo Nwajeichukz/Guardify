@@ -19,5 +19,8 @@ A custom authentication manager library for Spring Security.
 		<dependency>
 			<groupId>com.github.Nwajeichukz</groupId>
 			<artifactId>Guardify</artifactId>
-			<version>master-0ecd798eca-1</version>
+			<version>1.1.0</version>
 		</dependency>
+
+
+
