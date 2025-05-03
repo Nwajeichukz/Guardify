@@ -73,6 +73,4 @@ public class JwtAuthenticator {
 
         return claims.getId();  // This returns the jti (JWT ID) claim
     }
-
-
 }
