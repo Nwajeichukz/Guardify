@@ -53,14 +53,25 @@ public class JwtAuthenticator {
 
     //expiration date:  1000 * 60 * 60 * 10
     private String createToken(Map<String, Object> claims, String subject){
+        String jti = UUID.randomUUID().toString();
+
         return Jwts.builder().setClaims(claims).setSubject(subject).setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + expirationMs))
+                .setId(jti)
                 .signWith(SignatureAlgorithm.HS256, secretKey).compact();
     }
 
     public boolean validateToken(String token, String username){
         final String extractedUsername = extractUsername(token);
         return (extractedUsername.equals(username) && !isTokenExpired(token));
+    }
+    public String getJtiFromToken(String token) {
+        Claims claims = Jwts.parser()
+                .setSigningKey(secretKey)
+                .parseClaimsJws(token)
+                .getBody();
+
+        return claims.getId();  // This returns the jti (JWT ID) claim
     }
 
 
